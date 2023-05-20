@@ -8,7 +8,7 @@ The results will be sent to Home Assistant (HA) via BTHome (Bluetooth) Integrati
 # For security reasons please change the BindKey in src/main.cpp
 
 # HOW DOES IT WORK?
-If the mmwave sensor detects present, wakes up the ESP32 and turns on the display on TX510.
+If the mmwave sensor detects presence, wakes up the ESP32 and turns on the display on TX510.
 Then every 3 sec it starts the recognition procedure and sends a presence entity to HA along with a count sensor.
 The count sensor gives the UserId that was recognised (or stays on 0) and the presence sensor changes to on or off if the recognition was successful.
 
