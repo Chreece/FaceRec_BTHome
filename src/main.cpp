@@ -27,8 +27,8 @@ void setup() {
   pinMode(INP, INPUT_PULLDOWN);
   esp_sleep_enable_ext0_wakeup(GPIO_NUM_25, HIGH); // If you changed the INP change also the number here
 
-  uint8_t comm = IDENT;
-  // facerec.sendBattery(); This will probably make sence in the future if the sensor will be eventually battery friendly
+  uint8_t comm = IDENT; // This means we will send an Identification command
+  // facerec.sendBattery(); This will probably make sence in the future if the sensor will eventually be, battery friendly
   
   facerec.sendCommand(DISPL, TURNON); // Turn on the display
   facerec.rcvRecData();
@@ -43,7 +43,7 @@ void setup() {
     delay(3000);
   }
   
-  // There is no presence any more power saving mode
+  // There is no presence any more, enter power saving mode
   facerec.sendCommand(DISPL, TURNOFF); // Display off
   facerec.sendCommand(BACKLIT, TURNOFF); // Backlight off
   facerec.sendCommand(FLSH, TURNOFF); // Flash off
