@@ -1,4 +1,4 @@
-# FaceRec - A simple, local and secure face recognition project.
+# FaceRec (BETA) - A simple, local and secure face recognition project.
 
 It utilizes the [TX510](https://www.hlktech.net/index.php?id=1077&cateid=761) kit module that contains a 3d Camera, a display and a flash.
 Build on an Firebeetle ESP32 because of battery support but since this project isn't yet battery friendly, it could be build with any ESP32.
