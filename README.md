@@ -27,3 +27,6 @@ You can start using it!
 Please read the comments in the code.
 
 Build on [Platformio](https://platformio.org/)
+
+# DISCLAIMER
+The module can be easily manipulated to erase and add faces with physical buttons. Please make sure you don't expose them, or better don't use this project as security protection.
