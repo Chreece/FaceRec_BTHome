@@ -3,6 +3,7 @@
 It utilizes the [TX510](https://www.hlktech.net/index.php?id=1077&cateid=761) kit module that contains a 3d Camera, a display and a flash.
 Build on an Firebeetle ESP32 because of battery support but since this project isn't yet battery friendly, it could be build with any ESP32.
 For power saving it uses the ultra cheap ($1.5) and power saving (70uA) 5G mmwave sensor [HLK-LD012-5G](https://hlktech.net/index.php?id=451).
+The results will be sent to Home Assistant (HA) via BTHome (Bluetooth) Integration
 
 ![image](https://github.com/Chreece/FaceRec/assets/68458228/77b1cced-af66-4ff0-992e-444b1ce646a0)
 
