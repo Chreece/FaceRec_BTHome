@@ -1,34 +1,33 @@
 #define SYNCWORD1 0xEF
 #define SYNCWORD2 0xAA
-
-#define IDENT 0x12
-#define REGIS 0x13
-#define DEL 0x20
-#define CLR 0x21
-#define BACKLIT 0xC0
-#define DISPL 0xC1
-#define FLSH 0xC2
-#define VERS 0x30
-#define REBT 0xC3
-#define BAUDRT 0x51
-#define NUMBERREC 0xC4
-
+// Commands:
+#define IDENT 0x12  // Identify
+#define REGIS 0x13  // Register Face
+#define DEL 0x20  // Delete Face
+#define CLR 0x21  // Clear All Faces
+#define BACKLIT 0xC0  // Backlight control
+#define DISPL 0xC1  // Display Control
+#define FLSH 0xC2 // Flash control
+#define VERS 0x30 // Query Version
+#define REBT 0xC3 // Reboot
+#define BAUDRT 0x51 // Change Baudrate
+#define NUMBERREC 0xC4  // Query number recorded entries
+#define TURNON 0x01
+#define TURNOFF 0x00
+// Baudrates:
 #define BAUD9600 0x00
 #define BAUD19200 0x01
 #define BAUD38400 0x02
 #define BAUD57600 0x03
 #define BAUD115200 0x04
-
-#define SUCC 0x00
-#define FAIL 0x01
-#define ANGL 0x03
-#define FAIL2D 0x06
-#define FAIL3D 0x07
-#define NOMATCH 0x08
-#define EXIST 0x09
-
-#define TURNON 0x01
-#define TURNOFF 0x00
+// Responds from TX510
+#define SUCC 0x00 // Successful
+#define FAIL 0x01 // Failed
+#define ANGL 0x03 // Angle failure
+#define FAIL2D 0x06 // 2D failure
+#define FAIL3D 0x07 // 3D failure
+#define NOMATCH 0x08  // No mactching entry
+#define EXIST 0x09  // Entry already exist
 
 class FaceRec{
     private:

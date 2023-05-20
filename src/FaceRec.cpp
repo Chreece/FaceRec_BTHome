@@ -5,6 +5,7 @@
 
 BTHome bthome;
 
+// Method to get the packets from incoming bytes
 void FaceRec::rcvRecData(){
   static boolean rcving = false;
   static uint8_t iDx = 0;
@@ -40,6 +41,7 @@ void FaceRec::rcvRecData(){
 
 }
 
+// Packet received do actions... Currently only the identification responce is taking actions
 void FaceRec::paketReady(){
   switch(this->Data[7]){
     case IDENT:
@@ -64,6 +66,7 @@ void FaceRec::paketReady(){
   this->rcvComplete = false;
 }
 
+// Send a command to TX510
 void FaceRec::sendCommand(uint8_t command, uint8_t param1, uint8_t param2){
   byte Output[12];
   byte parityCheck = 0x00;
@@ -111,6 +114,7 @@ void FaceRec::sendCommand(uint8_t command, uint8_t param1, uint8_t param2){
 }
 
 #ifdef BATTERY
+// Since not yet battery friendly this will be ignored
 void FaceRec::sendBattery(){
   uint32_t value = 0;
   int rounds = 11;
@@ -138,6 +142,7 @@ void FaceRec::sendBattery(){
 }
 #endif
 
+// Initialize BTHome
 void FaceRec::BTHomeInit(String device, bool encrypt, String bind_key){
   bthome.begin(device, encrypt, bind_key);
   bthome.resetMeasurement();
