@@ -110,6 +110,7 @@ void FaceRec::sendCommand(uint8_t command, uint8_t param1, uint8_t param2){
   }
 }
 
+#ifdef BATTERY
 void FaceRec::sendBattery(){
   uint32_t value = 0;
   int rounds = 11;
@@ -135,6 +136,7 @@ void FaceRec::sendBattery(){
   delay(1500);
   bthome.stop();
 }
+#endif
 
 void FaceRec::BTHomeInit(String device, bool encrypt, String bind_key){
   bthome.begin(device, encrypt, bind_key);
