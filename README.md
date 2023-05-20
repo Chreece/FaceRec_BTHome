@@ -5,8 +5,6 @@ Build on an Firebeetle ESP32 because of battery support but since this project i
 For power saving it uses the ultra cheap ($1.5) and power saving (70uA) 5G mmwave sensor [HLK-LD012-5G](https://hlktech.net/index.php?id=451).
 The results will be sent to Home Assistant (HA) via BTHome (Bluetooth) Integration
 
-![image](https://github.com/Chreece/FaceRec/assets/68458228/77b1cced-af66-4ff0-992e-444b1ce646a0)
-
 # For security reasons please change the BindKey in src/main.cpp
 
 # HOW DOES IT WORK?
