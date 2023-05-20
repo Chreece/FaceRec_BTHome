@@ -25,6 +25,7 @@ To register new faces you can press the S1 button on the TX510. The UserIds star
 6) Register new faces
 You can start using it!
 
+# In folder resources you can find the English firmware + manuals and test tools
 Please read the comments in the code.
 
 Build on [Platformio](https://platformio.org/)
