@@ -30,4 +30,17 @@ You can start using it!
 # In folder resources you can find the English firmware + manuals and test tools
 Please read the comments in the code.
 
+# Battery operation update:
+* TX510 needs 5V power and ESP on battery (3.7V LiPo) can provide max Vbat, DC step up is needed
+* OUT of the mmWave sensor can't power anything, a relay or latching circuit is needed
+I connected a 3V on the OUT of the mmWave that powers a DC stepup converter which gives all the necessary 5V to use with TX510 and ESP.
+
+After some identification tries (5-6) the voltage of the battery drops under 3.2V which is not enough for the DC step up, which outputs 2,3V and the TX510 freezes.
+
+I'm not sure what causes the voltage drop (maybe the load is too big to handle and battery shuts off), but that's a no-go for this setup.
+
+If someone has an idea to imporove it please feel free to share!
+
+I will give an update if something changes...
+
 Build on [Platformio](https://platformio.org/)
