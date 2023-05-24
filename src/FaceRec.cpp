@@ -12,48 +12,50 @@ void FaceRec::rcvRecData(){
   byte startByte = SYNCWORD1;
   byte parityByte = 0;
   byte bt;
-  while ( Serial1.available() > 0 && !this->rcvComplete && iDx < 256 )
-  {
+  while ( Serial1.available() > 0 ){
     bt = Serial1.read();
-    if ( bt == startByte && !rcving ) {
-        rcving = true;
-        this->Data[0] = bt;
-        iDx = 1;
-    } else if ( rcving && iDx <= 12) {
-        if (iDx > 2 && parityByte != bt ){
-          parityByte += bt;
-        }
+    if ( rcving && iDx <= MAX_PACKET_SIZE ) {
+      if ( bt == parityByte && iDx > 8 && parityByte > 0 ){
+        this->Data[iDx] = bt;
+        parityByte = 0;
+        iDx = 0;
+        rcving = false;
+        processPacket();
+      } else {
+        parityByte += bt;
+        Serial.println(iDx);
         this->Data[iDx] = bt;
         iDx++;
-        if (bt == parityByte && iDx > 7) {
-            rcving = false;
-            iDx = 0;
-            parityByte = 0;
-            this->rcvComplete = true;
-            paketReady();
-        }
-      } else {
-        rcving = false;
-        parityByte = 0;
-        iDx++;
-      }
-  } 
-
+      } 
+    } else if (bt == SYNCWORD1 && iDx == 0) {
+          this->Data[0] = bt; 
+          iDx = 1;
+    } else if (bt == SYNCWORD2 && iDx == 1) {
+          this->Data[1] = bt; 
+          iDx++;
+          rcving = true;
+    } else {
+      iDx = 0;
+      rcving = false;
+    }
+  }
 }
 
 // Packet received do actions... Currently only the identification responce is taking actions
-void FaceRec::paketReady(){
+void FaceRec::processPacket(){
   switch(this->Data[7]){
     case IDENT:
       bthome.resetMeasurement();
       switch(this->Data[8]){
         case SUCC:
+          Serial.print("SUCCESS");
           byte userId;
           userId = this->Data[9] + this->Data[10];
           bthome.addMeasurement(ID_COUNT, (uint64_t) userId);
           bthome.addMeasurement_state(STATE_PRESENCE, STATE_ON);
           break;
         default:
+          Serial.print("FAILED");
           bthome.addMeasurement(ID_COUNT, 0.0f);
           bthome.addMeasurement_state(STATE_PRESENCE, STATE_OFF);
           break;
@@ -63,7 +65,6 @@ void FaceRec::paketReady(){
       bthome.stop();
       break;
   }
-  this->rcvComplete = false;
 }
 
 // Send a command to TX510

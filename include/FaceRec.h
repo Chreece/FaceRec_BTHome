@@ -29,12 +29,11 @@
 #define NOMATCH 0x08  // No mactching entry
 #define EXIST 0x09  // Entry already exist
 
+#define MAX_PACKET_SIZE 12
 class FaceRec{
     private:
-      uint8_t ByteLen = 12;
-      byte Data[12];
-      boolean rcvComplete = false;
-      void paketReady();
+      byte Data[MAX_PACKET_SIZE];
+      void processPacket();
 
     public:
       void sendBattery();
