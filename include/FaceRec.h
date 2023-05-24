@@ -26,7 +26,7 @@
 #define ANGL 0x03 // Angle failure
 #define FAIL2D 0x06 // 2D failure
 #define FAIL3D 0x07 // 3D failure
-#define NOMATCH 0x08  // No mactching entry
+#define NOMATCH 0x08  // No matching entry
 #define EXIST 0x09  // Entry already exist
 
 #define MAX_PACKET_SIZE 12
