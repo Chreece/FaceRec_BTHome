@@ -1,4 +1,4 @@
-# FaceRec (BETA) - A simple, local and secure face recognition project.
+# FaceRec - BTHome (BETA)  - A simple, local and secure face recognition project.
 
 # DISCLAIMER
 The module can be easily manipulated to erase and add faces with physical buttons. Please make sure you don't expose them.
